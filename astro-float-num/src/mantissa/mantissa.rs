@@ -762,7 +762,6 @@ impl Mantissa {
         Ok((shift, ret))
     }
 
-    #[cfg(test)]
     pub fn to_u64(&self) -> u64 {
         #[cfg(not(target_arch = "x86"))]
         {
