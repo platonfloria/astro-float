@@ -846,7 +846,6 @@ impl BigFloatNumber {
 
     /// Converts a number to f64 value.
     /// Conversion rounds `self` to zero.
-    #[cfg(test)]
     pub(crate) fn to_f64(&self) -> f64 {
         if self.m.is_zero() {
             return 0.0;

@@ -69,6 +69,15 @@ impl BigFloat {
         Self::result_to_ext(BigFloatNumber::from_f64(p, f), false, true)
     }
 
+    /// Converts to f64
+    pub fn to_f64(&self) -> f64 {
+        match &self.inner {
+            Flavor::Value(v) => v.to_f64(),
+            Flavor::NaN(_) => 0.0,
+            Flavor::Inf(_) => 0.0,
+        }
+    }
+
     pub(crate) fn nan(err: Option<Error>) -> Self {
         BigFloat {
             inner: Flavor::NaN(err),
